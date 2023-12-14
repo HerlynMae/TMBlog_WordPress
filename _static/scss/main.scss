@@ -1,0 +1,20 @@
+@import "01-variable";
+@import "02-reset";
+@import "03-base";
+@import "04-mixins";
+@import "05-grid";
+
+// COMPONENT
+@import "./components/header";
+@import "./components/footer";
+@import "./components/blog-list";
+@import "./components/recent-post";
+
+// PAGES
+@import "./pages/landing.scss";
+@import "./pages/single-category.scss";
+@import "./pages/single-blog.scss";
+@import "./pages/search-result.scss";
+
+
+@import "06-utilities";

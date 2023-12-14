@@ -1,0 +1,55 @@
+.banner {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  height: 80vh;
+  padding: 10rem 0 0 0;
+  &__intro {
+    margin-top: 18rem;
+    margin-bottom: 50%;
+    p {
+      font-weight: 200;
+    }
+    h1 {
+      font-size: clamp(3rem, 5vw,5rem);
+    }
+  }
+}
+.t--bold {
+  font-weight: bold;
+}
+
+.latestBlog {
+  h1 {
+    font-size: clamp(2rem, 5vh, 5rem)
+}
+  h2 {
+      font-size: clamp(2rem, 3.5vh, 3rem)
+  }
+  &__wrapper {
+    @include mediaQuery($break-md){
+     @include grid(2, 5rem);
+    }
+  }
+  border-bottom: 1px solid #ededed;
+  img {
+    width: 100%;
+  }
+  &__desc {
+    padding-bottom: 3rem;
+    margin: auto;
+    @include mediaQuery($break-md){
+      order: 2;
+      padding: 3rem 0 !important;
+    }
+  }
+  &__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include mediaQuery($break-md){
+      order: 1;
+    }
+  }
+}
+

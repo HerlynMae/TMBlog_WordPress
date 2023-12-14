@@ -1,0 +1,31 @@
+.singleBlog {
+    padding: 10rem 0 5rem 0;
+    @include mediaQuery($break-md){
+       padding: 15rem 0 10rem 0;
+    }
+    h1 {
+        font-size: clamp(5rem, 5vh, 5rem)
+    }
+    h2 {
+        font-size: clamp(2rem, 3.5vh, 3rem)
+    }
+    &__content {
+        margin-bottom: 5rem;
+        img {
+            width: 100%;
+        }
+    }
+    &__text {
+        p {
+            margin-bottom: 2rem;
+        }
+    }
+    &__wrapper {
+        position: relative;
+        @include mediaQuery($break-md){
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-gap: 2rem
+        }
+    }
+}

@@ -1,0 +1,26 @@
+.searchResult {
+    padding: 15rem 0 5rem 0;
+    h2.searchFilter {
+        font-weight: 300;
+        border-bottom: 1px solid #ededed;
+    }
+    &__list {
+        ul {
+            li {
+                margin-bottom: 2rem;
+            }
+        }
+        a.loadMore {
+            margin: 5rem 0;
+            display: block;
+        }
+    }
+    &__wrapper {
+        @include mediaQuery($break-md){
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-gap: 2rem;
+        }
+      
+    }
+}

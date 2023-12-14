@@ -1,0 +1,41 @@
+@mixin centerAll {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin mediaQuery($width: 48rem) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin grid($cols: 1, $gap: 1rem) {
+  display: grid;
+  grid-template-columns: repeat($cols, 1fr);
+  grid-gap: $gap;
+}
+
+@mixin imgFit($width: 300px, $height: 30 0px) {
+  width: $width;
+  height: $height;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+@mixin btn($bg) {
+  padding: 1.2rem 2rem;
+  color: $clr-light;
+  font-weight: 500;
+  font-size: 1.6rem;
+  display: inline-block;
+  background: $bg;
+  transition: 0.5s ease;
+  border: 2px solid $clr-primary;
+  &:hover {
+    background: $clr-light;
+    color: $clr-primary;
+    border: 2px solid $clr-primary;
+  }
+}

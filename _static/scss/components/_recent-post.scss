@@ -1,0 +1,26 @@
+.recentPost {
+    position: relative;
+    ul {
+        li {
+            border-bottom: 1px solid #ededed;
+            padding: 3rem 0;
+            display: flex;
+            i {
+                color: $clr-primary;
+                margin-right: 1rem;
+            }
+        }
+    }
+    border-top: 1px solid #ededed;
+    margin-top: 1rem;
+    &::before{
+        content:"Recent Post";
+        position: absolute;
+        color: $clr-primary;
+        font-weight:700;
+        font-size: 1.8rem;
+        top: -1.5rem;
+        background-color: $clr-light;
+        width: 12rem;
+    }
+}

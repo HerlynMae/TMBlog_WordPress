@@ -1,0 +1,42 @@
+.allPost {
+    &__title {
+      border-bottom: 1px solid #afa8a8;
+      p.title {
+        background: $clr-primary;
+        width: 10.5rem;
+        color: $clr-light;
+        padding: 1rem;
+        font-weight: 500;
+      }
+    }
+    p.viewAll {
+      font-weight: 600;
+    }
+    &__card {
+      border: 1px solid #ededed;
+      margin: 4rem 0;
+      img {
+        width: 100%;
+        max-height: 16rem;
+        object-fit: cover;
+      }
+      &__desc {
+        padding: 1rem 1rem 4rem 1rem;
+        .readMore-share {
+          a {
+            font-weight: 800;
+            font-size: smaller;
+          }
+          i {
+            font-size: 3rem;
+            color: $clr-dark-gray;
+          }
+        }
+      }
+    }
+    &__wrapper {
+      @include mediaQuery($break-md){
+        @include grid(3, 5rem);
+      }
+    }
+  }

@@ -1,0 +1,124 @@
+.header {
+  position: fixed;
+  width: 100%;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  z-index: 1;
+  background-color: $clr-light;
+  padding: 1rem;
+  &__logo {
+    img {
+      width: 20rem;
+    }
+  }
+  .nav {
+    position: absolute;
+    background-color: $clr-light;
+    top: 7.7rem;
+    right: -100%;
+    height: 100vh;
+    z-index: 1;
+    width: 50%;
+    transition: 0.5s ease;
+    ul {
+      padding: 1rem;
+      li {
+        padding: 1rem 2rem;
+        a.link {
+          font-weight: 700;
+          width: 100%;
+          display: block;
+        }
+        i {
+          color: $clr-dark-gray;
+          font-size: 2rem;
+          @include mediaQuery($break-md){
+            cursor: pointer;
+          }
+        }
+        input[type=text].searchField{
+          width: 100%;
+          border: none;
+          padding: 1rem;
+          @include mediaQuery($break-md){
+            display: none;
+            &.open {
+              display: block;
+              transition: 0.5s ease;
+            }
+          }
+        }
+        &:first-child {
+          border-bottom: 1px solid #bec1c7;
+          @include mediaQuery($break-md){
+            border: none;
+          }
+        }
+      }
+      @include mediaQuery($break-md){
+        display: flex;
+        align-items: center;
+      }
+    }
+    &.open{
+      right: 0;
+    }
+    @include mediaQuery($break-md){
+      position: static;
+      height: unset;
+      width: unset;
+      top: unset;
+    }
+  }
+  .toggle__menu{
+    cursor: pointer;
+    transition: 0.5s ease;
+    span {
+      transition: 0.5s ease;
+      display: block;
+      height: 0.4rem;
+      width: 3rem;
+      background-color: $clr-primary;
+      border-radius: 2px;
+      margin-bottom: 0.5rem;
+    }
+    &.open {
+      margin-top: -1rem;
+      transition: 0.5s ease;
+      transform: rotate(180deg);
+      span {
+        &:first-child {
+          transform: translate(-0.3rem, 0.4rem) rotate(-38deg);
+          transition: 0.5s ease;
+          width: 2rem;
+        }
+        &:last-child {
+          transform: translate(-0.3rem, -0.4rem) rotate(38deg);
+          transition: 0.5s ease;
+          width: 2rem;
+          //margin-bottom: 0;
+        }
+      }
+    }
+    @include mediaQuery($break-md){
+      display: none;
+    }
+  }
+  .bgDim {
+    display: none;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    left: 0;
+    top: 7.8rem;
+    transition: 1s ease;
+    &.open {
+      display: block;
+      transition: 1s ease;
+      background-color: rgba(0, 0, 0, 0.392);
+      @include mediaQuery($break-md){
+        display: none;
+      }
+    }
+  }
+}

@@ -15,9 +15,6 @@
 <!-- latest blog starts here -->
         <section class="latestBlog py--10">
             <div class="container">
-
-            
-
                 <div class="latestBlog__wrapper"> 
                     <!-- to get the post use 1 -->
                         <?php 
@@ -52,9 +49,6 @@
 
                             <!-- card ends here -->
                 </div>
-
-                           
-
             </div>
         </section>
 <!-- latest blog ends here -->
@@ -73,10 +67,20 @@
 
                         <!-- to get all the post use -1 -->
                         <?php 
+                        
                             $args = array(
                             'post_type' => 'post',
                             'posts_per_page' => 3,
-                            'offset' => 1,
+                            'offset' => 1,  //this is used for ignoring the first post
+                            
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'category',
+                                    'field'    => 'slug',
+                                    'terms' => 'Toys and Games',
+                                ),
+                               ),
+        
                             );
                             $newQuery = new WP_Query($args)
                         ?>
@@ -109,60 +113,60 @@
 
                             <!-- card ends here -->
 
-                             
-                            
-
                         </div>
-                        <a class="viewAll text--secondary" href="./single-category.html">View All</a>
+                        <a class="viewAll text--secondary" href=" http://localhost/tmblog/view-by-category/?categ=toys-and-games">View All</a>
                     </div>
                 </div>
 
                 <div class="allPost__category py--6 bg--dark-gray">
                     <div class="container">
                         <div class="allPost__title">
-                            <p class="title">Category 1</p>
+                            <p class="title">Category 2</p>
                         </div>
                         <div class="allPost__wrapper">
+                        <?php 
+                            $args = array(
+                            'post_type' => 'post',
+                            'posts_per_page' => 3,
+                            // 'offset' => 1,  //this is used for ignoring the first post
+                            
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'category',
+                                    'field'    => 'slug',
+                                    'terms' => 'second',
+                                ),
+                               ),
+        
+                            );
+                            $newQuery = new WP_Query($args)
+                        ?>
 
+                        <?php if($newQuery->have_posts()) : while($newQuery->have_posts()) : $newQuery->the_post();?>
                             <div class="allPost__card">
-                                <img src="<?php echo get_template_directory_uri() ?>/img/blog-card-img.png" alt="">
+                                <!-- to get the featured image -->
+                            <?php echo get_the_post_thumbnail() ?>
                                 <div class="allPost__card__desc text--left">
-                                    <h3 class="text--primary mb--1">Lorem ipsum dolor sit amet.</h3>
-                                    <p class="mb--4">Lorem ipsum dolor sit amet consectetur adipisicing elit. natus placeat qui, nisi voluptatem.</p>
+                                    <h3 class="text--primary mb--1"><?php the_title() ?></h3>
+                                    <p class="mb--4"><?php echo  get_the_excerpt() ?></p>
                                     <div class="readMore-share d--flex justify--between align--center">
-                                        <a class="text--primary" href="./single-blog.html">READ MORE ></a>
+                                        <a class="text--primary" href="<?php the_permalink() ?>">READ MORE ></a>
                                         <i class="fa-solid fa-share-nodes"></i>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="allPost__card">
-                                <img src="<?php echo get_template_directory_uri() ?>/img/blog-card-img.png" alt="">
-                                <div class="allPost__card__desc text--left">
-                                    <h3 class="text--primary mb--1">Lorem ipsum dolor sit amet.</h3>
-                                    <p class="mb--4">Lorem ipsum dolor sit amet consectetur adipisicing elit. natus placeat qui, nisi voluptatem.</p>
-                                    <div class="readMore-share d--flex justify--between align--center">
-                                        <a class="text--primary" href="./single-blog.html">READ MORE ></a>
-                                        <i class="fa-solid fa-share-nodes"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="allPost__card">
-                                <img src="<?php echo get_template_directory_uri() ?>/img/blog-card-img.png" alt="">
-                                <div class="allPost__card__desc text--left">
-                                    <h3 class="text--primary mb--1">Lorem ipsum dolor sit amet.</h3>
-                                    <p class="mb--4">Lorem ipsum dolor sit amet consectetur adipisicing elit. natus placeat qui, nisi voluptatem.</p>
-                                    <div class="readMore-share d--flex justify--between align--center">
-                                        <a class="text--primary" href="./single-blog.html">READ MORE ></a>
-                                        <i class="fa-solid fa-share-nodes"></i>
-                                    </div>
-                                </div>
-                            </div> 
+                            <?php
+                                endwhile;
+                                else :
+                                    echo "no available content yet";
+                                endif;
+                                wp_reset_postdata();
+                             ?>
+                            
                             
 
                         </div>
-                        <a href="./single-category.html" class="viewAll text--secondary">View All</a>
+                        <a href="http://localhost/tmblog/view-by-category/?categ=second" class="viewAll text--secondary">View All</a>
                     </div>
                 </div>
 
@@ -172,46 +176,47 @@
                             <p class="title">Category 3</p>
                         </div>
                         <div class="allPost__wrapper">
-
+                        <?php 
+                            $args = array(
+                            'post_type' => 'post',
+                            'posts_per_page' => 3,
+                            // 'offset' => 1, //this is used for ignoring the first post
+                            
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'category',
+                                    'field'    => 'slug',
+                                    'terms' => 'third',
+                                ),
+                               ),
+        
+                            );
+                            $newQuery = new WP_Query($args)
+                        ?>
+                            <?php if($newQuery->have_posts()) : while($newQuery->have_posts()) : $newQuery->the_post();?>
                             <div class="allPost__card">
-                                <img src="<?php echo get_template_directory_uri() ?>/img/blog-card-img.png" alt="">
+                               <?php echo get_the_post_thumbnail() ?>
                                 <div class="allPost__card__desc text--left">
-                                    <h3 class="text--primary mb--1">Lorem ipsum dolor sit amet.</h3>
-                                    <p class="mb--4">Lorem ipsum dolor sit amet consectetur adipisicing elit. natus placeat qui, nisi voluptatem.</p>
+                                    <h3 class="text--primary mb--1"><?php the_title() ?></h3>
+                                    <p class="mb--4"><?php echo  get_the_excerpt() ?></p>
                                     <div class="readMore-share d--flex justify--between align--center">
-                                        <a class="text--primary" href="./single-blog.html">READ MORE ></a>
+                                        <a class="text--primary" href="<?php the_permalink() ?>">READ MORE ></a>
                                         <i class="fa-solid fa-share-nodes"></i>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="allPost__card">
-                                <img src="<?php echo get_template_directory_uri() ?>/img/blog-card-img.png" alt="">
-                                <div class="allPost__card__desc text--left">
-                                    <h3 class="text--primary mb--1">Lorem ipsum dolor sit amet.</h3>
-                                    <p class="mb--4">Lorem ipsum dolor sit amet consectetur adipisicing elit. natus placeat qui, nisi voluptatem.</p>
-                                    <div class="readMore-share d--flex justify--between align--center">
-                                        <a class="text--primary" href="./single-blog.html">READ MORE ></a>
-                                        <i class="fa-solid fa-share-nodes"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="allPost__card">
-                                <img src="<?php echo get_template_directory_uri() ?>/img/blog-card-img.png" alt="">
-                                <div class="allPost__card__desc text--left">
-                                    <h3 class="text--primary mb--1">Lorem ipsum dolor sit amet.</h3>
-                                    <p class="mb--4">Lorem ipsum dolor sit amet consectetur adipisicing elit. natus placeat qui, nisi voluptatem.</p>
-                                    <div class="readMore-share d--flex justify--between align--center">
-                                        <a class="text--primary" href="./single-blog.html">READ MORE ></a>
-                                        <i class="fa-solid fa-share-nodes"></i>
-                                    </div>
-                                </div>
-                            </div> 
+                            <?php
+                                endwhile;
+                                else :
+                                    echo "no available content yet";
+                                endif;
+                                wp_reset_postdata();
+                             ?>
                             
 
                         </div>
-                        <a href="./single-category.html" class="viewAll text--secondary">View All</a>
+                        <a href="http://localhost/tmblog/view-by-category/?categ=third" class="viewAll text--secondary">View All</a>
                     </div>
                 </div>
 

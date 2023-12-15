@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./dist/css/main.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    <!-- to get the functions file -->
+    <!-- to get the files inside includes -->
     <?php wp_head() ?>
 </head>
     <body>
